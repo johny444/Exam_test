@@ -1,24 +1,83 @@
+import React from "react";
+import { Pagination } from "antd";
 import "./App.css";
-import Sidebar from "./components/Sidebar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Overview from "./pages/Overview";
-import { Reports, ReportsOne, ReportsTwo, ReportsThree } from "./pages/Reports";
-import Team from "./pages/Team";
+import "antd/dist/antd.css";
+import axios from "axios";
+const pageSize = 6;
 
-function App() {
-  return (
-    <Router>
-      <Sidebar />
-      <Routes>
-        <Route path="/overview" exact element={<Overview />} />
-        <Route path="/reports" exact element={<Reports />} />
-        <Route path="/reports/reports1" exact element={<ReportsOne />} />
-        <Route path="/reports/reports2" exact element={<ReportsTwo />} />
-        <Route path="/reports/reports3" exact element={<ReportsThree />} />
-        <Route path="/team" exact element={<Team />} />
-      </Routes>
-    </Router>
-  );
+class App extends React.Component {
+  state = {
+    data: [],
+    totalPage: 0,
+    current: 1,
+    minIndex: 0,
+    maxIndex: 0,
+  };
+
+  async componentDidMount() {
+    // fetch("https://api.github.com/gists/public")
+    //   .then((response) => response.json())
+    //   .then((data) =>
+    //     this.setState({
+    //       data,
+    //       totalPage: data.length / pageSize,
+    //       minIndex: 0,
+    //       maxIndex: pageSize,
+    //     })
+    //   );
+    const response = await axios
+      .get("https://api.github.com/gists/public")
+      .catch((err) => {
+        console.log("ERRO form fetchQuestion", err);
+      });
+
+    // const { data } = response;
+    // console.log("data", data.length);
+
+    this.setState({
+      data: response.data,
+      totalPage: response.data.length / pageSize,
+      minIndex: 0,
+      maxIndex: pageSize,
+    });
+  }
+
+  handleChange = (page) => {
+    this.setState({
+      current: page,
+      minIndex: (page - 1) * pageSize,
+      maxIndex: page * pageSize,
+    });
+  };
+
+  render() {
+    const { data, current, minIndex, maxIndex } = this.state;
+    return (
+      <div className="App" style={{ marginTop: "20px" }}>
+        <h1>Git Hub Accounts</h1>
+        <ul>
+          {data?.map(
+            (data, index) =>
+              index >= minIndex &&
+              index < maxIndex && (
+                <li
+                  key={data.id}
+                  style={{ lineHeight: "30px", fontWeight: "500" }}
+                >
+                  {data.owner.login}
+                </li>
+              )
+          )}
+        </ul>
+        <Pagination
+          pageSize={pageSize}
+          current={current}
+          total={data.length}
+          onChange={this.handleChange}
+          style={{ bottom: "0px" }}
+        />
+      </div>
+    );
+  }
 }
-
 export default App;
