@@ -14,35 +14,6 @@ function App() {
     maxIndex: 0,
   });
   console.log("first", state);
-
-  // async componentDidMount() {
-  //   // fetch("https://api.github.com/gists/public")
-  //   //   .then((response) => response.json())
-  //   //   .then((data) =>
-  //   //     this.setState({
-  //   //       data,
-  //   //       totalPage: data.length / pageSize,
-  //   //       minIndex: 0,
-  //   //       maxIndex: pageSize,
-  //   //     })
-  //   //   );
-  //   const response = await axios
-  //     .get("https://api.github.com/gists/public")
-  //     .catch((err) => {
-  //       console.log("ERRO form fetchQuestion", err);
-  //     });
-
-  //   // const { data } = response;
-  //   // console.log("data", data.length);
-
-  //   this.setState({
-  //     data: response.data,
-  //     totalPage: response.data.length / pageSize,
-  //     minIndex: 0,
-  //     maxIndex: pageSize,
-  //   });
-  // }
-
   const fetchQuestion = async () => {
     const response = await axios
       .get("https://api.github.com/gists/public")
@@ -65,6 +36,7 @@ function App() {
   }, []);
   const handleChange = (page) => {
     setState({
+      ...state,
       current: page,
       minIndex: (page - 1) * pageSize,
       maxIndex: page * pageSize,
@@ -72,6 +44,7 @@ function App() {
   };
 
   const { data, current, minIndex, maxIndex } = state;
+  console.log("seconde", state);
   return (
     <div className="App" style={{ marginTop: "20px" }}>
       <h1>Git Hub Accounts</h1>
