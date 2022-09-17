@@ -1,16 +1,16 @@
 import { Radio } from "antd";
 import React, { useState } from "react";
-import { Radio1 } from "./pages/Radio1";
-import { Radio2 } from "./pages/Radio2";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Question from "./components/Question";
+import Question2 from "./components/Question2";
 const App = () => {
   return (
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Radio1 />}></Route>
-
-          <Route path="/Radio2" element={<Radio2 />}></Route>
+          <Route path="/" element={<Question></Question>}></Route>
+          <Route path="/2" element={<Question2></Question2>}></Route>
         </Routes>
       </Router>
     </div>
