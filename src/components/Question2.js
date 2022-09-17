@@ -1,4 +1,4 @@
-import { Radio } from "antd";
+import { Pagination, Radio } from "antd";
 import React, { useState } from "react";
 const plainOptions = ["Apple", "Pear", "Orange"];
 const options = [
@@ -56,6 +56,12 @@ const Question2 = () => {
     console.log("radio4 checked", value);
     setValue4(value);
   };
+  const [value, setValue] = useState(1);
+
+  const onChange = (e) => {
+    console.log("radio checked", e.target.value);
+    setValue(e.target.value);
+  };
   return (
     <div>
       {" "}
@@ -83,6 +89,14 @@ const Question2 = () => {
         optionType="button"
         buttonStyle="solid"
       />
+      <p>------------------------------</p>
+      <Radio value={1}>A</Radio>
+      <Radio value={2} checked={true}>
+        B
+      </Radio>
+      <Radio value={3}>C</Radio>
+      <Radio value={4}>D</Radio>
+      <Pagination defaultCurrent={1} total={50} />
     </div>
   );
 };

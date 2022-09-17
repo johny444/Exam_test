@@ -31,113 +31,63 @@
       {
         "id": 1,
         "question_name": "10-5 ?",
+        "options":["3","1","2","5"],
         "option_one": "3",
         "option_two": "1",
         "option_three": "2",
         "option_four": "5",
-        "question_answer": "5",
+        "answer": "5",
         "exam_id": 1,
         "subject_name": "Maths"
       },
       {
         "id": 2,
         "question_name": "10+5 ssss?",
+        "options":["3","1","4","15"],
         "option_one": "3",
         "option_two": "1",
         "option_three": "4",
         "option_four": "15",
-        "question_answer": "15",
+        "answer": "15",
         "exam_id": 1,
         "subject_name": "Maths"
       },
       {
         "question_name": "10*5",
+        "options":["10","5","50","2"],
         "option_one": "10",
         "option_two": "5",
         "option_three": "50",
         "option_four": "2",
-        "question_answer": "50",
+        "answer": "50",
         "exam_id": "1",
         "subject_name": "Maths",
         "id": 3
       },
       {
         "question_name": "110-10 ?",
+        "options":["110","100","10","1"],
         "option_one": "110",
         "option_two": "100",
         "option_three": "10",
         "option_four": "1",
-        "question_answer": "100",
+        "answer": "100",
         "exam_id": "1",
         "subject_name": "Maths",
         "id": 4
       },
       {
         "question_name": "10/2 = ?",
+        "options":["1","5","10","7"],
         "option_one": "1",
         "option_two": "5",
         "option_three": "10",
         "option_four": "7",
-        "question_answer": "5",
+        "answer": "5",
         "exam_id": "1",
         "subject_name": "Maths",
         "id": 5
-      } ,
-      {
-        "question_name": "123",
-        "option_one": "1",
-        "option_two": "5",
-        "option_three": "10",
-        "option_four": "7",
-        "question_answer": "5",
-        "exam_id": "1",
-        "subject_name": "Maths",
-        "id": 6
-      } ,
-      {
-        "question_name": "345",
-        "option_one": "1",
-        "option_two": "5",
-        "option_three": "10",
-        "option_four": "7",
-        "question_answer": "5",
-        "exam_id": "1",
-        "subject_name": "Maths",
-        "id": 7
-      } ,
-      {
-        "question_name": "1423",
-        "option_one": "1",
-        "option_two": "5",
-        "option_three": "10",
-        "option_four": "7",
-        "question_answer": "5",
-        "exam_id": "1",
-        "subject_name": "Maths",
-        "id": 8
-      } ,
-      {
-        "question_name": "45756",
-        "option_one": "1",
-        "option_two": "5",
-        "option_three": "10",
-        "option_four": "7",
-        "question_answer": "5",
-        "exam_id": "1",
-        "subject_name": "Maths",
-        "id": 9
-      } ,
-      {
-        "question_name": "2312",
-        "option_one": "1",
-        "option_two": "5",
-        "option_three": "10",
-        "option_four": "7",
-        "question_answer": "5",
-        "exam_id": "1",
-        "subject_name": "Maths",
-        "id": 10
-      }
+      } 
     ],
     "Result": [
       {
